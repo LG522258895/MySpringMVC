@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.cloud_note.dao.FavorDao">
+
+<select id="findFavor" 
+parameterType="com.cn.cloud_note.entity.Favor"
+resultType="int">
+select count(*) from cn_favors
+where cn_user_id=#{cn_user_id} 
+	and cn_share_id=#{cn_share_id}
+</select>
+
+<insert id="save" 
+parameterType="com.cn.cloud_note.entity.Favor">
+insert into cn_favors
+	(cn_user_id,cn_share_id)
+values (#{cn_user_id},#{cn_share_id})
+</insert>
+
+</mapper>
